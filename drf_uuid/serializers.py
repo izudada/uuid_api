@@ -8,5 +8,5 @@ class CustomerSerializer(serializers.ModelSerializer):
     class Meta:
         model = CowrywiseCustomer
         fields = (
-            'uuid', 'created_at'
+            'name', 'email', 'age'
         )
