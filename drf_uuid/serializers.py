@@ -5,5 +5,4 @@ from .models import CowrywiseCustomer
 class CustomerSerializer(serializers.ModelSerializer):
     class Meta:
         model = CowrywiseCustomer
-        fields = ( 'name', 'email', 'age'
-        )
+        fields = ( 'name', 'email', 'age')
