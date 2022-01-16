@@ -1,3 +1,3 @@
 Pipfile
 
-db.sqlite3
+drf_uuid/db.sqlite3
