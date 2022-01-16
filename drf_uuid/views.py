@@ -20,7 +20,9 @@ class CowrywiseAPI(APIView):
         serializer = {}
         for info in data:
             serializer[info[0]] = info[1] 
-        return Response(serializer)
+        if len(serializer) > 1:
+            return Response(serializer)
+        return {"error" : "No data to display"}
         
     def post(self, request, *args, **kwargs):
         """
