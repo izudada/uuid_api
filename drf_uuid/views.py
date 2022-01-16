@@ -9,12 +9,11 @@ from .models import CowrywiseCustomer
 
 class CowrywiseAPI(APIView):
     def get(self, request, *args, **kwargs):
-        data = {
-                "2021-05-21 12:10:19.484523": "e8c928fea580474cae5aa3934c59c26f",
-                "2021-05-21 12:08:25.751933": "fcd25b46bec84ef79e14410b91fbf0b3",
-                "2021-05-21 12:07:27.150522": "6270d1d412b546a28b7d2c98130e1a5a"
-            }
-        return Response(data)
+        data = CowrywiseCustomer.objects.filter().values_list('uuid', 'created_at')
+        serializer = {}
+        for info in data:
+            serializer[info[0]] = info[1] 
+        return Response(serializer)
         
     def post(self, request, *args, **kwargs):
         serializer = CustomerSerializer(data=request.data)
